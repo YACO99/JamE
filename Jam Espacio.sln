@@ -1,12 +1,18 @@
-﻿Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jam Espacio", "Jam Espacio.csproj", "{C71D98A0-7FAC-4E06-BC8E-6285005416EE}"
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34525.116
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Jam Espacio", "Jam Espacio.csproj", "{C71D98A0-7FAC-4E06-BC8E-6285005416EE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data\Data.csproj", "{33AF552B-C62C-4249-A475-4750FABD432C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-	Debug|Any CPU = Debug|Any CPU
-	ExportDebug|Any CPU = ExportDebug|Any CPU
-	ExportRelease|Any CPU = ExportRelease|Any CPU
+		Debug|Any CPU = Debug|Any CPU
+		ExportDebug|Any CPU = ExportDebug|Any CPU
+		ExportRelease|Any CPU = ExportRelease|Any CPU
+		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{C71D98A0-7FAC-4E06-BC8E-6285005416EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -15,5 +21,18 @@ Global
 		{C71D98A0-7FAC-4E06-BC8E-6285005416EE}.ExportDebug|Any CPU.Build.0 = ExportDebug|Any CPU
 		{C71D98A0-7FAC-4E06-BC8E-6285005416EE}.ExportRelease|Any CPU.ActiveCfg = ExportRelease|Any CPU
 		{C71D98A0-7FAC-4E06-BC8E-6285005416EE}.ExportRelease|Any CPU.Build.0 = ExportRelease|Any CPU
+		{C71D98A0-7FAC-4E06-BC8E-6285005416EE}.Release|Any CPU.ActiveCfg = ExportRelease|Any CPU
+		{C71D98A0-7FAC-4E06-BC8E-6285005416EE}.Release|Any CPU.Build.0 = ExportRelease|Any CPU
+		{33AF552B-C62C-4249-A475-4750FABD432C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33AF552B-C62C-4249-A475-4750FABD432C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33AF552B-C62C-4249-A475-4750FABD432C}.ExportDebug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33AF552B-C62C-4249-A475-4750FABD432C}.ExportDebug|Any CPU.Build.0 = Debug|Any CPU
+		{33AF552B-C62C-4249-A475-4750FABD432C}.ExportRelease|Any CPU.ActiveCfg = Release|Any CPU
+		{33AF552B-C62C-4249-A475-4750FABD432C}.ExportRelease|Any CPU.Build.0 = Release|Any CPU
+		{33AF552B-C62C-4249-A475-4750FABD432C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33AF552B-C62C-4249-A475-4750FABD432C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 EndGlobal
