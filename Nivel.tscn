@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2i4t8mjml1ia"]
+
+[ext_resource type="PackedScene" uid="uid://s6jjkmmw4nsw" path="res://Interfaz.tscn" id="1_bb3j6"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+
+[node name="Control" parent="." instance=ExtResource("1_bb3j6")]
