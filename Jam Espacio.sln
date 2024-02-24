@@ -1,0 +1,19 @@
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jam Espacio", "Jam Espacio.csproj", "{C71D98A0-7FAC-4E06-BC8E-6285005416EE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+	Debug|Any CPU = Debug|Any CPU
+	ExportDebug|Any CPU = ExportDebug|Any CPU
+	ExportRelease|Any CPU = ExportRelease|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C71D98A0-7FAC-4E06-BC8E-6285005416EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C71D98A0-7FAC-4E06-BC8E-6285005416EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C71D98A0-7FAC-4E06-BC8E-6285005416EE}.ExportDebug|Any CPU.ActiveCfg = ExportDebug|Any CPU
+		{C71D98A0-7FAC-4E06-BC8E-6285005416EE}.ExportDebug|Any CPU.Build.0 = ExportDebug|Any CPU
+		{C71D98A0-7FAC-4E06-BC8E-6285005416EE}.ExportRelease|Any CPU.ActiveCfg = ExportRelease|Any CPU
+		{C71D98A0-7FAC-4E06-BC8E-6285005416EE}.ExportRelease|Any CPU.Build.0 = ExportRelease|Any CPU
+	EndGlobalSection
+EndGlobal
