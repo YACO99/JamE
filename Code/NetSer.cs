@@ -30,7 +30,7 @@ public partial class NetSer
 				{
 					Client c = new Client();
 					ID++;
-                    c.id = ID;
+					c.id = ID;
 					c.tcp = listener.AcceptSocket();
 					c.tcp.ReceiveTimeout = 10;
 					c.tcp.Send(BitConverter.GetBytes(c.id));

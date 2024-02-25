@@ -13,16 +13,16 @@ public partial class NetCli
 	Socket cliente;
 	public int MyID = 0;
 	public Escena escena=new Escena();
-    public void Start(string ip, bool server = false)
+	public void Start(string ip, bool server = false)
 	{
 		cliente = new Socket(AddressFamily.InterNetwork,SocketType.Stream,ProtocolType.Tcp);
-        cliente.ReceiveTimeout = 1000;
-        cliente.Connect(new IPEndPoint(IPAddress.Parse(ip), 41858));
+		cliente.ReceiveTimeout = 1000;
+		cliente.Connect(new IPEndPoint(IPAddress.Parse(ip), 41858));
 		byte[] b = new byte[4];
 		cliente.Receive(b);
-        MyID = BitConverter.ToInt32(b);
+		MyID = BitConverter.ToInt32(b);
 		GD.Print(MyID);
-        t1 = new Thread(new ThreadStart(delegate () { 
+		t1 = new Thread(new ThreadStart(delegate () { 
 			while (cliente.Connected)
 			{
 				try
@@ -32,12 +32,12 @@ public partial class NetCli
 					datos.Add(Pack.SetBytes(b));
 				}
 				catch (Exception) { }
-            }
+			}
 		}));
 		t1.Start();
 		if (server)
 			AdminNet.admin.ser.SetIDAdmin(MyID);
-    }
+	}
 	public void Update ()
 	{
 		if (datos.Count > 0) {
@@ -45,18 +45,18 @@ public partial class NetCli
 			{
 				escena = e;
 			}
-            datos.RemoveAt(0);
-        }
+			datos.RemoveAt(0);
+		}
 	}
 	public void Send(Pack p) {
-        try
-        {
-            p.id = MyID;
-            byte[] b = Pack.GetBytes(p);
+		try
+		{
+			p.id = MyID;
+			byte[] b = Pack.GetBytes(p);
 			cliente.Send(b);
-        }
-        catch (Exception e) {
+		}
+		catch (Exception e) {
 			GD.Print(e.Message);
 		}
-    }
+	}
 }
