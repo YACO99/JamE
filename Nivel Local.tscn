@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dy5puye1dr7mx"]
+
+[ext_resource type="PackedScene" uid="uid://iwspjrl1e0bi" path="res://Hub.tscn" id="1_aqlxt"]
+[ext_resource type="PackedScene" uid="uid://gpk6e0ir0bf4" path="res://LocalPlayer.tscn" id="2_ffea2"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Hub" parent="." instance=ExtResource("1_aqlxt")]
+
+[node name="LocalPlayer" parent="." instance=ExtResource("2_ffea2")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.05631, -0.0306308, 0.350115)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.4133, 0)
+omni_range = 28.2115
