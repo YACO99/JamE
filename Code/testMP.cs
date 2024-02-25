@@ -1,6 +1,7 @@
 using Data;
 using Godot;
 using System;
+using System.Threading;
 
 public partial class testMP : Node
 {
@@ -26,5 +27,12 @@ public partial class testMP : Node
 		player.name = GetNode<LineEdit>("Interfaz/Name").Text;
         AdminNet.admin.cli.Send(player);
         GetNode<Control>("Interfaz").Visible = false;
+        var u=new Upnp();
+        try
+        {
+            //u.GetDevice(u.Discover()).AddPortMapping(41858,41858,"juegoJam","TCP");
+        }catch(Exception) {
+            GD.PrintErr("NO UPNP");
+        }
     }
 }

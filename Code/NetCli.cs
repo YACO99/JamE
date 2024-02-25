@@ -4,28 +4,29 @@ using System.Net.Sockets;
 using System.Collections.Generic;
 using Data;
 using System.Net;
+using Godot;
 
 public partial class NetCli
 {
 	List<Pack> datos = new List<Pack>();
 	Thread t1;
-	TcpClient cliente;
+	Socket cliente;
 	public int MyID = 0;
 	public Escena escena=new Escena();
     public void Start(string ip, bool server = false)
 	{
-		cliente = new TcpClient();
-        cliente.ReceiveTimeout = 10;
+		cliente = new Socket(AddressFamily.InterNetwork,SocketType.Stream,ProtocolType.Tcp);
+        cliente.ReceiveTimeout = 100;
         cliente.Connect(new IPEndPoint(IPAddress.Parse(ip), 41858));
 		byte[] b = new byte[4];
-		MyID = cliente.GetStream().Read(b, 0, b.Length);
+		MyID = cliente.Receive(b);
         t1 = new Thread(new ThreadStart(delegate () { 
 			while (cliente.Connected)
 			{
 				try
 				{
 					byte[] b = new byte[Pack.size];
-					cliente.GetStream().Read(b);
+					cliente.Receive(b);
 					datos.Add(Pack.SetBytes(b));
 				}
 				catch (Exception) { }
@@ -49,15 +50,11 @@ public partial class NetCli
         try
         {
             p.id = MyID;
-			byte[] b= new byte[Pack.size];
-			Pack.GetBytes(p).CopyTo(b,0);
-			cliente.GetStream().Write(b);
+            byte[] b = Pack.GetBytes(p);
+			cliente.Send(b);
         }
-        catch (Exception) { }
+        catch (Exception e) {
+			GD.Print(e.Message);
+		}
     }
-}
-public class Client 
-{
-	public int id;
-	public TcpClient tcp;
 }

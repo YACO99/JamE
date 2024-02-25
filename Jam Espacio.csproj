@@ -6,4 +6,9 @@
     <EnableDynamicLoading>true</EnableDynamicLoading>
     <RootNamespace>JamEspacio</RootNamespace>
   </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Dato">
+      <HintPath>C:\Users\Yaco\source\repos\Dato\bin\Debug\net6.0\Dato.dll</HintPath>
+    </Reference>
+  </ItemGroup>
 </Project>

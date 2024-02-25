@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://gpk6e0ir0bf4"]
 
-[ext_resource type="Script" path="res://Code/Player.cs" id="1_sou13"]
+[ext_resource type="Script" path="res://Code/LocalPlayer.cs" id="1_sou13"]
 [ext_resource type="PackedScene" uid="uid://gw0um0xfw2e3" path="res://Camera.tscn" id="2_6txtp"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xnlpt"]
