@@ -8,25 +8,27 @@ public partial class Player : CharacterBody3D
 	Camera camera;
 	Vector3 velocity;
 
-    public float gravity = ProjectSettings.GetSetting("physics/3d/default_gravity").AsSingle();
+	public float gravity = ProjectSettings.GetSetting("physics/3d/default_gravity").AsSingle();
 
-    public override void _Ready()
-    {
+	public override void _Ready()
+	{
 		camera = GetNode<Camera>("Camera");
-    }
+	}
 
-    public override void _PhysicsProcess(double delta)
+	public override void _PhysicsProcess(double delta)
 	{
 		velocity = Velocity;
 
 		if (!IsOnFloor())
 			velocity.Y -= gravity * (float)delta;
 
-			if (Input.IsActionJustPressed("Jump"))
-				velocity.Y = JumpVelocity;
 
 		if (IsOnFloor())
 		{
+			
+			if (Input.IsActionJustPressed("Jump"))
+				velocity.Y = JumpVelocity;
+				
 			Vector2 inputDir = Input.GetVector("Left", "Right", "Forward", "Back");
 			Vector3 direction = (camera.Transform.Basis * new Vector3(inputDir.X, 0, inputDir.Y)).Normalized();
 			if (direction != Vector3.Zero)
@@ -40,7 +42,7 @@ public partial class Player : CharacterBody3D
 				velocity.Z = Mathf.MoveToward(Velocity.Z, 0, Speed);
 			}
 		}
-        Velocity = velocity;
+		Velocity = velocity;
 		MoveAndSlide();
 	}
 }
