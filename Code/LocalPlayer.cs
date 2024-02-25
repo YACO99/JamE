@@ -8,9 +8,9 @@ public partial class LocalPlayer : CharacterBody3D
 	public const float JumpVelocity = 4.5f;
 	Camera camera;
 	Vector3 velocity;
-    public Player player;
+	public Player player;
 	double timeSend = 1;
-    public float gravity = ProjectSettings.GetSetting("physics/3d/default_gravity").AsSingle();
+	public float gravity = ProjectSettings.GetSetting("physics/3d/default_gravity").AsSingle();
 
 	public override void _Ready()
 	{
@@ -39,13 +39,13 @@ public partial class LocalPlayer : CharacterBody3D
 				var temp=(camera.GlobalRotationDegrees.Y - GlobalRotationDegrees.Y);
 				if (temp < -180)
 					temp += 360;
-                if (temp > 180)
-                    temp -= 360;
+				if (temp > 180)
+					temp -= 360;
 
-                var dir = temp  * Vector3.Up * (float)delta*10;
+				var dir = temp  * Vector3.Up * (float)delta*10;
 				GlobalRotationDegrees += dir;
-                camera.GlobalRotationDegrees -= dir;
-                velocity.X = direction.X * Speed;
+				camera.GlobalRotationDegrees -= dir;
+				velocity.X = direction.X * Speed;
 				velocity.Z = direction.Z * Speed;
 			}
 			else
@@ -66,7 +66,7 @@ public partial class LocalPlayer : CharacterBody3D
 				AdminNet.admin.cli.Send(player);
 			}
 		}
-        Velocity = velocity;
+		Velocity = velocity;
 		MoveAndSlide();
 	}
 }

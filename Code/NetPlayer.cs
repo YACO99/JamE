@@ -8,15 +8,15 @@ public partial class NetPlayer : CharacterBody3D
 
 	public override void _PhysicsProcess(double delta)
 	{
-        Position += (player.pos - Position)*(float)delta*5;
-        GetNode<Label3D>("Name").Text = player.name;
-        Velocity = player.vel;
-        var temp = (player.ry - GlobalRotationDegrees.Y);
-        if (temp < -180)
-            temp += 360;
-        if (temp > 180)
-            temp -= 360;
-        GlobalRotationDegrees += temp * Vector3.Up * (float)delta * 10;
-        MoveAndSlide();
+		Position += (player.pos - Position)*(float)delta*5;
+		GetNode<Label3D>("Name").Text = player.name;
+		Velocity = player.vel;
+		var temp = (player.ry - GlobalRotationDegrees.Y);
+		if (temp < -180)
+			temp += 360;
+		if (temp > 180)
+			temp -= 360;
+		GlobalRotationDegrees += temp * Vector3.Up * (float)delta * 10;
+		MoveAndSlide();
 	}
 }
