@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
-
+using Godot;
 namespace Data
 {
     [Serializable]
@@ -29,27 +29,26 @@ namespace Data
     public class Player : Pack
     {
         public string name = "";
-        public float px = 0, py = 0, pz = 0, ry = 0;
+        public Vector3 pos = Vector3.Zero, vel = Vector3.Zero;
+        public float ry = 0;
 
-        public void set(string name, float px, float py, float pz, float ry)
+        public void set(string name, Vector3 pos, Vector3 vel, float ry)
         {
             this.name = name;
-            this.px = px;
-            this.py = py;
-            this.pz = pz;
+            this.pos = pos;
+            this.vel = vel;
             this.ry = ry;
         }
     }
     [Serializable]
     public class Roca : Pack
     {
-        public float px = 0, py = 0, pz = 0;
+        public Vector3 pos = Vector3.Zero, vel=Vector3.Zero;
         public int modelo = 0;
-        public void set(float px, float py, float pz)
+        public void set(Vector3 pos, Vector3 vel)
         {
-            this.px = px;
-            this.py = py;
-            this.pz = pz;
+            this.pos = pos;
+            this.vel = vel;
         }
     }
     [Serializable]

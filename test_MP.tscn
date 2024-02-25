@@ -1,0 +1,102 @@
+[gd_scene load_steps=7 format=3 uid="uid://udne8rxdnrfn"]
+
+[ext_resource type="Script" path="res://Code/testMP.cs" id="1_6141u"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tr0nd"]
+size = Vector3(10, 0.1, 10)
+
+[sub_resource type="BoxMesh" id="BoxMesh_xmv4f"]
+size = Vector3(10, 0.1, 10)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_uquxm"]
+sky_top_color = Color(0, 0, 0, 1)
+sky_horizon_color = Color(0.121569, 0.12549, 0.133333, 1)
+ground_bottom_color = Color(0, 0, 0, 1)
+ground_horizon_color = Color(0.184314, 0.188235, 0.196078, 1)
+
+[sub_resource type="Sky" id="Sky_30vgd"]
+sky_material = SubResource("ProceduralSkyMaterial_uquxm")
+
+[sub_resource type="Environment" id="Environment_6lwvr"]
+background_mode = 2
+sky = SubResource("Sky_30vgd")
+tonemap_mode = 3
+
+[node name="testMP" type="Node"]
+script = ExtResource("1_6141u")
+
+[node name="Mundo" type="Node3D" parent="."]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Mundo"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mundo/StaticBody3D"]
+shape = SubResource("BoxShape3D_tr0nd")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mundo/StaticBody3D"]
+mesh = SubResource("BoxMesh_xmv4f")
+
+[node name="Spawn" type="Node3D" parent="Mundo"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_6lwvr")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.884084, 0.467328, 0, -0.467328, 0.884084, 0, 0, 0)
+shadow_enabled = true
+sky_mode = 1
+
+[node name="Interfaz" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="IP" type="LineEdit" parent="Interfaz"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_top = 0.333
+anchor_right = 0.6
+anchor_bottom = 0.378
+offset_top = 0.23999
+offset_bottom = -0.160004
+placeholder_text = "IP"
+
+[node name="Name" type="LineEdit" parent="Interfaz"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_top = 0.422
+anchor_right = 0.6
+anchor_bottom = 0.467
+offset_top = 0.159973
+offset_bottom = -0.23999
+placeholder_text = "Name"
+
+[node name="Connect" type="Button" parent="Interfaz"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_top = 0.511
+anchor_right = 0.6
+anchor_bottom = 0.556
+offset_top = 0.0799866
+offset_bottom = -0.320038
+text = "Connect"
+
+[node name="Server" type="Button" parent="Interfaz"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_top = 0.6
+anchor_right = 0.6
+anchor_bottom = 0.644
+offset_top = -3.05176e-05
+offset_bottom = 0.319946
+text = "Server"
+
+[connection signal="pressed" from="Interfaz/Connect" to="." method="_on_connect_pressed"]
+[connection signal="pressed" from="Interfaz/Server" to="." method="_on_server_pressed"]

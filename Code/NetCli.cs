@@ -10,7 +10,7 @@ public partial class NetCli
 	List<Pack> datos = new List<Pack>();
 	Thread t1;
 	TcpClient cliente;
-	int MyID = 0;
+	public int MyID = 0;
 	public Escena escena=new Escena();
     public void Start(string ip, bool server = false)
 	{
@@ -22,9 +22,13 @@ public partial class NetCli
         t1 = new Thread(new ThreadStart(delegate () { 
 			while (cliente.Connected)
 			{
-                byte[] b = new byte[Pack.size];
-                cliente.GetStream().Read(b);
-                datos.Add(Pack.SetBytes(b));
+				try
+				{
+					byte[] b = new byte[Pack.size];
+					cliente.GetStream().Read(b);
+					datos.Add(Pack.SetBytes(b));
+				}
+				catch (Exception) { }
             }
 		}));
 		t1.Start();
@@ -41,6 +45,16 @@ public partial class NetCli
             datos.RemoveAt(0);
         }
 	}
+	public void Send(Pack p) {
+        try
+        {
+            p.id = MyID;
+			byte[] b= new byte[Pack.size];
+			Pack.GetBytes(p).CopyTo(b,0);
+			cliente.GetStream().Write(b);
+        }
+        catch (Exception) { }
+    }
 }
 public class Client 
 {

@@ -1,14 +1,16 @@
+using Data;
 using Godot;
 using System;
 
-public partial class Player : CharacterBody3D
+public partial class LocalPlayer : CharacterBody3D
 {
 	public const float Speed = 5.0f;
 	public const float JumpVelocity = 4.5f;
 	Camera camera;
 	Vector3 velocity;
-
-	public float gravity = ProjectSettings.GetSetting("physics/3d/default_gravity").AsSingle();
+    public Player player;
+	double timeSend = 1;
+    public float gravity = ProjectSettings.GetSetting("physics/3d/default_gravity").AsSingle();
 
 	public override void _Ready()
 	{
@@ -52,7 +54,17 @@ public partial class Player : CharacterBody3D
 				velocity.Z = Mathf.MoveToward(Velocity.Z, 0, Speed);
 			}
 		}
-		Velocity = velocity;
+		if (timeSend > 0)
+			timeSend -= delta*8;
+		else
+		{
+			timeSend = 1;
+			player.pos = Position;
+			player.vel = velocity;
+			player.ry = GlobalRotationDegrees.Y;
+			AdminNet.admin.cli.Send(player);
+        }
+        Velocity = velocity;
 		MoveAndSlide();
 	}
 }

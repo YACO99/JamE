@@ -25,12 +25,16 @@ namespace Data
 			{
 				while (start)
 				{
-					Client c = new Client();
-					c.id = ID++;
-					c.tcp = listener.AcceptTcpClient();
-					c.tcp.ReceiveTimeout = 10;
-					c.tcp.GetStream().Write(BitConverter.GetBytes(c.id));
-					Clients.Add(c);
+					try
+					{
+						Client c = new Client();
+						c.id = ID++;
+						c.tcp = listener.AcceptTcpClient();
+						c.tcp.ReceiveTimeout = 10;
+						c.tcp.GetStream().Write(BitConverter.GetBytes(c.id));
+						Clients.Add(c);
+					}
+					catch (Exception) { }
 				}
 			}));
 			t2 = new Thread(new ThreadStart(delegate ()
@@ -38,10 +42,14 @@ namespace Data
 				while (start)
 				{
 					for (int i = 0; i < Clients.Count; i++)
-					{//try
-						byte[] b = new byte[Pack.size];
-						Clients[i].tcp.GetStream().Read(b);
-						datos.Add(Pack.SetBytes(b));
+					{
+						try
+						{
+							byte[] b = new byte[Pack.size];
+							Clients[i].tcp.GetStream().Read(b);
+							datos.Add(Pack.SetBytes(b));
+						}
+						catch (Exception) { }
 					}
 				}
 			}));
@@ -53,9 +61,13 @@ namespace Data
 					{
 						for (int i = 0; i < Clients.Count; i++)
 						{
-							byte[] b = new byte[Pack.size];
-							Escena.GetBytes(escena).CopyTo(b, 0);
-							Clients[i].tcp.GetStream().Write(b);
+							try
+							{
+								byte[] b = new byte[Pack.size];
+								Escena.GetBytes(escena).CopyTo(b, 0);
+								Clients[i].tcp.GetStream().Write(b);
+							}
+							catch (Exception) { }
 						}
 					}
 					Thread.Sleep(100);
@@ -79,7 +91,7 @@ namespace Data
 					{
 						if (_p != null)
 						{
-							_p.set(p.name, p.px, p.py, p.pz, p.ry);
+							_p.set(p.name, p.pos,p.vel, p.ry);
 						}
 						else
 						{
@@ -92,7 +104,7 @@ namespace Data
 					var _r = escena.rocas.Find(x => x.id == r.id);
 					if (_r != null)
 					{
-						_r.set(r.px, r.py, r.pz);
+						_r.set(r.pos, r.vel);
 					}
 					else
 					{
