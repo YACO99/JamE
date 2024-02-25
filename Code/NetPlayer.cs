@@ -8,7 +8,7 @@ public partial class NetPlayer : CharacterBody3D
 
 	public override void _PhysicsProcess(double delta)
 	{
-	    Position = player.pos;
+        Position += (player.pos - Position)*(float)delta*5;
         GetNode<Label3D>("Name").Text = player.name;
         Velocity = player.vel;
         var temp = (player.ry - GlobalRotationDegrees.Y);

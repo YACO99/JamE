@@ -54,16 +54,18 @@ public partial class LocalPlayer : CharacterBody3D
 				velocity.Z = Mathf.MoveToward(Velocity.Z, 0, Speed);
 			}
 		}
-		if (timeSend > 0)
-			timeSend -= delta*8;
-		else
-		{
-			timeSend = 1;
-			player.pos = Position;
-			player.vel = velocity;
-			player.ry = GlobalRotationDegrees.Y;
-			AdminNet.admin.cli.Send(player);
-        }
+		if (AdminNet.admin.start) {
+			if (timeSend > 0)
+				timeSend -= delta * 8;
+			else
+			{
+				timeSend = 1;
+				player.pos = Position;
+				player.vel = velocity;
+				player.ry = GlobalRotationDegrees.Y;
+				AdminNet.admin.cli.Send(player);
+			}
+		}
         Velocity = velocity;
 		MoveAndSlide();
 	}
