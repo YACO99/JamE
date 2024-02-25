@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://digvdqcsegirl"]
+
+[ext_resource type="PackedScene" uid="uid://cxevupyadxs8s" path="res://JuegoX.glb" id="1_wxpxr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_86vcg"]
+resource_name = "Material.001"
+albedo_color = Color(0.585228, 0.585228, 0.585228, 1)
+metallic = 0.336788
+roughness = 0.215026
+
+[node name="Main" instance=ExtResource("1_wxpxr")]
+
+[node name="PA_Bool" parent="." index="4"]
+surface_material_override/0 = SubResource("StandardMaterial3D_86vcg")

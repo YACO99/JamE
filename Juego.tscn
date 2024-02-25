@@ -1,9 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://c2i4t8mjml1ia"]
+[gd_scene load_steps=4 format=3 uid="uid://c2i4t8mjml1ia"]
 
 [ext_resource type="PackedScene" uid="uid://s6jjkmmw4nsw" path="res://Interfaz.tscn" id="1_bb3j6"]
+[ext_resource type="PackedScene" path="res://test_pj.tscn" id="2_8uakp"]
+[ext_resource type="PackedScene" uid="uid://dy5puye1dr7mx" path="res://Escenario.tscn" id="3_xxsav"]
 
 [node name="Node3D" type="Node3D"]
 
-[node name="Camera3D" type="Camera3D" parent="."]
-
 [node name="Control" parent="." instance=ExtResource("1_bb3j6")]
+
+[node name="testPJ" parent="." instance=ExtResource("2_8uakp")]
+
+[node name="Node3D" parent="." instance=ExtResource("3_xxsav")]
