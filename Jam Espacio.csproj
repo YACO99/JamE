@@ -8,7 +8,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Dato">
-      <HintPath>C:\Users\Yaco\source\repos\Dato\bin\Debug\net6.0\Dato.dll</HintPath>
+      <HintPath>Code\Dato.dll</HintPath>
     </Reference>
   </ItemGroup>
 </Project>

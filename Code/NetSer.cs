@@ -12,7 +12,7 @@ public partial class NetSer
 	Thread t1, t2, t3;
 	bool start = false;
 	TcpListener listener;
-	int ID = 1, MyID;
+	int ID = 0, MyID;
 	Escena escena = new Escena();
 	public void SetIDAdmin(int id)
 	{
@@ -21,6 +21,7 @@ public partial class NetSer
 	public void Start()
 	{
 		listener = new TcpListener(System.Net.IPAddress.Any, 41858);
+		listener.Server.ReceiveTimeout = -1;
 		t1 = new Thread(new ThreadStart(delegate ()
 		{
 			while (start)
@@ -28,7 +29,8 @@ public partial class NetSer
 				try
 				{
 					Client c = new Client();
-					c.id = ID++;
+					ID++;
+                    c.id = ID;
 					c.tcp = listener.AcceptSocket();
 					c.tcp.ReceiveTimeout = 10;
 					c.tcp.Send(BitConverter.GetBytes(c.id));
@@ -65,8 +67,7 @@ public partial class NetSer
 					{
 						try
 						{
-							byte[] b = new byte[Pack.size];
-							Escena.GetBytes(escena).CopyTo(b, 0);
+							byte[] b = Escena.GetBytes(escena);
 							Clients[i].tcp.Send(b);
 						}
 						catch (Exception) { }

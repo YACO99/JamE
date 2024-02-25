@@ -2,6 +2,7 @@ using Data;
 using Godot;
 using System;
 using System.Collections.Generic;
+using static Godot.Projection;
 
 public partial class AutoLoad : Node
 {
@@ -38,7 +39,8 @@ public partial class AutoLoad : Node
 					{
 						var temp = NP.Instantiate<NetPlayer>();
 						temp.player = admin.cli.escena.players[i];
-						temp.Position = admin.cli.escena.players[i].pos;
+						temp.Position = temp.player.pos;
+						players.Add(temp);
                         mundo.AddChild(temp);
 					}
 				}
@@ -46,7 +48,7 @@ public partial class AutoLoad : Node
 				{
                     lPlayer = LP.Instantiate<LocalPlayer>();
 					lPlayer.player = admin.cli.escena.players[i];
-                    lPlayer.Position = admin.cli.escena.players[i].pos;
+                    lPlayer.Position = lPlayer.player.pos;
                     mundo.AddChild(lPlayer);
                 }
 			}

@@ -16,10 +16,12 @@ public partial class NetCli
     public void Start(string ip, bool server = false)
 	{
 		cliente = new Socket(AddressFamily.InterNetwork,SocketType.Stream,ProtocolType.Tcp);
-        cliente.ReceiveTimeout = 100;
+        cliente.ReceiveTimeout = 1000;
         cliente.Connect(new IPEndPoint(IPAddress.Parse(ip), 41858));
 		byte[] b = new byte[4];
-		MyID = cliente.Receive(b);
+		cliente.Receive(b);
+        MyID = BitConverter.ToInt32(b);
+		GD.Print(MyID);
         t1 = new Thread(new ThreadStart(delegate () { 
 			while (cliente.Connected)
 			{
