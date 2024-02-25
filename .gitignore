@@ -1,6 +1,5 @@
 # Godot 4+ specific ignores
 .godot/
-.vs/
 
 # Godot-specific ignores
 .import/
@@ -14,3 +13,4 @@ export_presets.cfg
 .mono/
 data_*/
 mono_crash.*.json
+.vs/
