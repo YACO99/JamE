@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://gw0um0xfw2e3"]
+
+[ext_resource type="Script" path="res://Code/Camera.cs" id="1_q2wx4"]
+
+[node name="Camera" type="Node3D"]
+script = ExtResource("1_q2wx4")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 3)
+
+[node name="RayRight" type="RayCast3D" parent="."]
+target_position = Vector3(1, 0, 3)
+
+[node name="RayLeft" type="RayCast3D" parent="."]
+target_position = Vector3(-1, 0, 3)

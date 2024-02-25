@@ -16,14 +16,17 @@ public partial class AutoLoad : Node
 	public override void _Process(double delta)
 	{
 		admin.Update();
-		for (int i = 0; i < admin.cli.escena.players.Count; i++)
+		if (admin.cli != null)
 		{
-		
-		}
-        for (int i = 0; i < admin.cli.escena.rocas.Count; i++)
-        {
+			for (int i = 0; i < admin.cli.escena.players.Count; i++)
+			{
 
-        }
-		//chat=admin.cli.escena.Chat;
+			}
+			for (int i = 0; i < admin.cli.escena.rocas.Count; i++)
+			{
+
+			}
+			//chat=admin.cli.escena.Chat;
+		}
     }
 }

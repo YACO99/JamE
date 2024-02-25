@@ -6,4 +6,7 @@
     <EnableDynamicLoading>true</EnableDynamicLoading>
     <RootNamespace>JamEspacio</RootNamespace>
   </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="Data\Data\Data.csproj" />
+  </ItemGroup>
 </Project>

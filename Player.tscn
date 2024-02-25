@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://gpk6e0ir0bf4"]
+
+[ext_resource type="Script" path="res://Code/Player.cs" id="1_sou13"]
+[ext_resource type="PackedScene" path="res://Camera.tscn" id="2_6txtp"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xnlpt"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_13wlm"]
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_sou13")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_xnlpt")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_13wlm")
+
+[node name="Camera" parent="." instance=ExtResource("2_6txtp")]
+transform = Transform3D(1, 0, 0, 0, 0.906308, 0.422618, 0, -0.422618, 0.906308, 0, 1.5, 0)
