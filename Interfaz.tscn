@@ -1,4 +1,7 @@
-[gd_scene format=3 uid="uid://s6jjkmmw4nsw"]
+[gd_scene load_steps=3 format=3 uid="uid://s6jjkmmw4nsw"]
+
+[ext_resource type="Texture2D" uid="uid://cncg4sxhdw8e6" path="res://path2-1.svg" id="1_7ueji"]
+[ext_resource type="Texture2D" uid="uid://dloiexbhc0cma" path="res://USER-2.svg" id="2_ygdnr"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -7,3 +10,131 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="puntajesPersonajesVB" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="mc-total" type="MarginContainer" parent="MarginContainer/HBoxContainer/puntajesPersonajesVB"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/puntajesPersonajesVB/mc-total"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/puntajesPersonajesVB/mc-total/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_7ueji")
+
+[node name="totalPuntaje" type="Label" parent="MarginContainer/HBoxContainer/puntajesPersonajesVB/mc-total/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "600"
+
+[node name="Jugadores" type="VBoxContainer" parent="MarginContainer/HBoxContainer/puntajesPersonajesVB"]
+layout_mode = 2
+size_flags_vertical = 10
+
+[node name="mc-item-jugador" type="MarginContainer" parent="MarginContainer/HBoxContainer/puntajesPersonajesVB/Jugadores"]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="hbcontainte-jugador" type="HBoxContainer" parent="MarginContainer/HBoxContainer/puntajesPersonajesVB/Jugadores/mc-item-jugador"]
+layout_mode = 2
+
+[node name="iconsUser" type="TextureRect" parent="MarginContainer/HBoxContainer/puntajesPersonajesVB/Jugadores/mc-item-jugador/hbcontainte-jugador"]
+layout_mode = 2
+texture = ExtResource("2_ygdnr")
+expand_mode = 2
+
+[node name="namePointUser" type="Label" parent="MarginContainer/HBoxContainer/puntajesPersonajesVB/Jugadores/mc-item-jugador/hbcontainte-jugador"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Leonardo1 - 30pt"
+
+[node name="mc-item-jugador2" type="MarginContainer" parent="MarginContainer/HBoxContainer/puntajesPersonajesVB/Jugadores"]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="hbcontainte-jugador" type="HBoxContainer" parent="MarginContainer/HBoxContainer/puntajesPersonajesVB/Jugadores/mc-item-jugador2"]
+layout_mode = 2
+
+[node name="iconsUser" type="TextureRect" parent="MarginContainer/HBoxContainer/puntajesPersonajesVB/Jugadores/mc-item-jugador2/hbcontainte-jugador"]
+layout_mode = 2
+texture = ExtResource("2_ygdnr")
+expand_mode = 2
+
+[node name="namePointUser" type="Label" parent="MarginContainer/HBoxContainer/puntajesPersonajesVB/Jugadores/mc-item-jugador2/hbcontainte-jugador"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Leonardo2 - 30pt"
+
+[node name="mc-item-jugador3" type="MarginContainer" parent="MarginContainer/HBoxContainer/puntajesPersonajesVB/Jugadores"]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="hbcontainte-jugador" type="HBoxContainer" parent="MarginContainer/HBoxContainer/puntajesPersonajesVB/Jugadores/mc-item-jugador3"]
+layout_mode = 2
+
+[node name="iconsUser" type="TextureRect" parent="MarginContainer/HBoxContainer/puntajesPersonajesVB/Jugadores/mc-item-jugador3/hbcontainte-jugador"]
+layout_mode = 2
+texture = ExtResource("2_ygdnr")
+expand_mode = 2
+
+[node name="namePointUser" type="Label" parent="MarginContainer/HBoxContainer/puntajesPersonajesVB/Jugadores/mc-item-jugador3/hbcontainte-jugador"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Leonardo3 - 30pt"
+
+[node name="mc-item-jugador4" type="MarginContainer" parent="MarginContainer/HBoxContainer/puntajesPersonajesVB/Jugadores"]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="hbcontainte-jugador" type="HBoxContainer" parent="MarginContainer/HBoxContainer/puntajesPersonajesVB/Jugadores/mc-item-jugador4"]
+layout_mode = 2
+
+[node name="iconsUser" type="TextureRect" parent="MarginContainer/HBoxContainer/puntajesPersonajesVB/Jugadores/mc-item-jugador4/hbcontainte-jugador"]
+layout_mode = 2
+texture = ExtResource("2_ygdnr")
+expand_mode = 2
+
+[node name="namePointUser" type="Label" parent="MarginContainer/HBoxContainer/puntajesPersonajesVB/Jugadores/mc-item-jugador4/hbcontainte-jugador"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Leonardo4 - 30pt"
+
+[node name="hp-vb" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.91
+
+[node name="ProgressBar" type="ProgressBar" parent="MarginContainer/HBoxContainer/hp-vb"]
+layout_mode = 2
+value = 20.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Notificacion" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+text = "600"
