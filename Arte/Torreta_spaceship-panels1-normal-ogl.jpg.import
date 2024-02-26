@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bh1dnf8j3vp44"
-path.s3tc="res://.godot/imported/Torreta_spaceship-panels1-albedo.jpg-f97592421fd3998d09402da87ce377d7.s3tc.ctex"
+uid="uid://d24o1fil7alri"
+path.s3tc="res://.godot/imported/Torreta_spaceship-panels1-normal-ogl.jpg-205950eccf1d76a205b7f0086c994e70.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ generator_parameters={}
 
 [deps]
 
-source_file="res://Torreta_spaceship-panels1-albedo.jpg"
-dest_files=["res://.godot/imported/Torreta_spaceship-panels1-albedo.jpg-f97592421fd3998d09402da87ce377d7.s3tc.ctex"]
+source_file="res://Arte/Torreta_spaceship-panels1-normal-ogl.jpg"
+dest_files=["res://.godot/imported/Torreta_spaceship-panels1-normal-ogl.jpg-205950eccf1d76a205b7f0086c994e70.s3tc.ctex"]
 
 [params]
 
@@ -21,12 +21,12 @@ compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/normal_map=0
+compress/normal_map=1
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=0
-roughness/src_normal=""
+roughness/mode=1
+roughness/src_normal="res://Torreta_spaceship-panels1-normal-ogl.jpg"
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false

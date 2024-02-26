@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b4iehg3u3n1b6"
-path="res://.godot/imported/Torreta.glb-d52f1f9e0cef91cf71996a48c1d55074.scn"
+uid="uid://duomlil484hoe"
+path="res://.godot/imported/Torreta.glb-94b9182996307634ce421482d5efe7b4.scn"
 
 [deps]
 
-source_file="res://Torreta.glb"
-dest_files=["res://.godot/imported/Torreta.glb-d52f1f9e0cef91cf71996a48c1d55074.scn"]
+source_file="res://Arte/Torreta.glb"
+dest_files=["res://.godot/imported/Torreta.glb-94b9182996307634ce421482d5efe7b4.scn"]
 
 [params]
 
