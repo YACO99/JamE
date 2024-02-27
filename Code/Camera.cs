@@ -19,7 +19,7 @@ public partial class Camera : Node3D
 	{
 		if (GetParent<LocalPlayer>().Disparando)
 		{
-            cam.GlobalPosition += (GetParent<LocalPlayer>().Torreta.Position+Vector3.Up*2+GetParent<LocalPlayer>().Torreta.GlobalBasis.Z*2 - cam.GlobalPosition) * (float)delta * speedCam;
+            cam.GlobalPosition += (GetParent<LocalPlayer>().Torreta.GlobalPosition+Vector3.Up*2+GetParent<LocalPlayer>().Torreta.GlobalBasis.Z*2 - cam.GlobalPosition) * (float)delta * speedCam;
         }
 		else
 		{

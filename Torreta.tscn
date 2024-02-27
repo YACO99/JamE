@@ -1,6 +1,6 @@
 [gd_scene load_steps=46 format=3 uid="uid://blaiphkfpev1j"]
 
-[ext_resource type="Script" path="res://Code/Torreta.cs" id="1_aqqdx"]
+[ext_resource type="Script" path="res://Code/LocalTorreta.cs" id="1_8j4kt"]
 [ext_resource type="Texture2D" uid="uid://dbnl4pveb14xq" path="res://Arte/Torreta_spaceship-panels1-albedo.jpg" id="2_8kr8r"]
 [ext_resource type="Texture2D" uid="uid://cex3ui2bvmexn" path="res://Arte/Torreta_spaceship-panels1-metallic.png" id="3_qjoxy"]
 [ext_resource type="Texture2D" uid="uid://d24o1fil7alri" path="res://Arte/Torreta_spaceship-panels1-normal-ogl.jpg" id="4_xu5xs"]
@@ -607,7 +607,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_dopep")
 
 [node name="Torreta" type="Node3D"]
-script = ExtResource("1_aqqdx")
+script = ExtResource("1_8j4kt")
 
 [node name="Base" type="MeshInstance3D" parent="."]
 transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, -0.005053, 0.530475, -0.0134308)

@@ -1,34 +1,139 @@
-[gd_scene load_steps=6 format=3 uid="uid://dy5puye1dr7mx"]
+[gd_scene load_steps=9 format=3 uid="uid://dy5puye1dr7mx"]
 
+[ext_resource type="Script" path="res://Code/testMP.cs" id="1_8s8f1"]
 [ext_resource type="PackedScene" uid="uid://iwspjrl1e0bi" path="res://Hub.tscn" id="1_aqlxt"]
-[ext_resource type="PackedScene" uid="uid://gpk6e0ir0bf4" path="res://LocalPlayer.tscn" id="2_ffea2"]
+[ext_resource type="PackedScene" uid="uid://s6jjkmmw4nsw" path="res://Interfaz.tscn" id="2_e68rc"]
+[ext_resource type="PackedScene" uid="uid://blaiphkfpev1j" path="res://Torreta.tscn" id="4_pf63p"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4verg"]
+sky_top_color = Color(0, 0, 0, 1)
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_bottom_color = Color(0, 0, 0, 1)
 ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
 
 [sub_resource type="Sky" id="Sky_iidis"]
 sky_material = SubResource("ProceduralSkyMaterial_4verg")
 
 [sub_resource type="Environment" id="Environment_j0yqh"]
-background_color = Color(0.45098, 0.45098, 0.45098, 1)
+background_mode = 1
 sky = SubResource("Sky_iidis")
+ambient_light_source = 3
 tonemap_mode = 3
 ssr_enabled = true
 sdfgi_use_occlusion = true
 glow_enabled = true
 volumetric_fog_sky_affect = 0.0
 
-[node name="Node3D" type="Node3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_23puj"]
+size = Vector3(4, 1, 1)
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_8s8f1")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_j0yqh")
 
 [node name="Hub" parent="." instance=ExtResource("1_aqlxt")]
 
-[node name="LocalPlayer" parent="." instance=ExtResource("2_ffea2")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -16.7011, 6.92069, 0.350115)
-
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.4133, 0)
 omni_range = 28.2115
+
+[node name="Control" parent="." instance=ExtResource("2_e68rc")]
+visible = false
+
+[node name="Mundo" type="Node3D" parent="."]
+
+[node name="1" type="Area3D" parent="Mundo"]
+transform = Transform3D(0.390731, 0, -0.920505, 0, 1, 0, 0.920505, 0, 0.390731, 20.4478, 1.3141, -5.25478)
+
+[node name="Torreta" parent="Mundo/1" instance=ExtResource("4_pf63p")]
+id = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mundo/1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.19209e-06, -0.42279, 3.34909)
+shape = SubResource("BoxShape3D_23puj")
+
+[node name="2" type="Area3D" parent="Mundo"]
+transform = Transform3D(-0.390731, 0, 0.920505, 0, 1, 0, -0.920505, 0, -0.390731, -19.1702, 7.96642, 7.84172)
+
+[node name="Torreta" parent="Mundo/2" instance=ExtResource("4_pf63p")]
+id = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mundo/2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.19209e-06, -0.42279, 3.34909)
+shape = SubResource("BoxShape3D_23puj")
+
+[node name="3" type="Area3D" parent="Mundo"]
+transform = Transform3D(0.374607, 0, 0.927184, 0, 1, 0, -0.927184, 0, 0.374607, -19.5214, 7.96642, -7.27006)
+
+[node name="Torreta" parent="Mundo/3" instance=ExtResource("4_pf63p")]
+id = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mundo/3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.19209e-06, -0.42279, 3.34909)
+shape = SubResource("BoxShape3D_23puj")
+
+[node name="Spawn" type="Node3D" parent="Mundo"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.78996, 0, 0)
+
+[node name="Interfaz" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="IP" type="LineEdit" parent="Interfaz"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_top = 0.333
+anchor_right = 0.6
+anchor_bottom = 0.378
+offset_top = 0.23999
+offset_bottom = -0.160004
+placeholder_text = "IP"
+
+[node name="Name" type="LineEdit" parent="Interfaz"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_top = 0.422
+anchor_right = 0.6
+anchor_bottom = 0.467
+offset_top = 0.159973
+offset_bottom = -0.23999
+placeholder_text = "Name"
+
+[node name="Connect" type="Button" parent="Interfaz"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_top = 0.511
+anchor_right = 0.6
+anchor_bottom = 0.556
+offset_top = 0.0799866
+offset_bottom = -0.320038
+text = "Connect"
+
+[node name="Server" type="Button" parent="Interfaz"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_top = 0.6
+anchor_right = 0.6
+anchor_bottom = 0.644
+offset_top = -3.05176e-05
+offset_bottom = 0.319946
+text = "Server"
+
+[connection signal="body_entered" from="Mundo/1" to="Mundo/1/Torreta" method="_on__body_entered"]
+[connection signal="body_exited" from="Mundo/1" to="Mundo/1/Torreta" method="_on__body_exited"]
+[connection signal="body_entered" from="Mundo/2" to="Mundo/2/Torreta" method="_on__body_entered"]
+[connection signal="body_exited" from="Mundo/2" to="Mundo/2/Torreta" method="_on__body_exited"]
+[connection signal="body_entered" from="Mundo/3" to="Mundo/3/Torreta" method="_on__body_entered"]
+[connection signal="body_exited" from="Mundo/3" to="Mundo/3/Torreta" method="_on__body_exited"]
+[connection signal="pressed" from="Interfaz/Connect" to="." method="_on_connect_pressed"]
+[connection signal="pressed" from="Interfaz/Server" to="." method="_on_server_pressed"]

@@ -9,10 +9,11 @@ public partial class LocalPlayer : CharacterBody3D
 	Camera camera;
 	Vector3 velocity;
 	public Player player;
-	double timeSend = 1;
+	double timeSend = 0;
 	public float gravity = ProjectSettings.GetSetting("physics/3d/default_gravity").AsSingle();
 	public bool Disparando = false;
-	public Torreta Torreta = null;
+	public LocalTorreta Torreta = null;
+	public int area=0;
     public override void _Ready()
 	{
 		camera = GetNode<Camera>("Camera");
@@ -54,14 +55,19 @@ public partial class LocalPlayer : CharacterBody3D
 				velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed);
 				velocity.Z = Mathf.MoveToward(Velocity.Z, 0, Speed);
 			}
-            if (Input.IsActionJustPressed("Fire2") && Torreta == null)
-            {
-                Torreta = AutoLoad.auto.mundo.GetNode<Torreta>("Torreta");
-				GetNode<Camera>("Camera").GlobalRotation=Torreta.GlobalRotation;
-                Disparando = true;
-            }
+			if (Input.IsActionJustPressed("Fire2") && Torreta == null && area != 0)
+			{
+				var t = AutoLoad.auto.mundo.GetNode<LocalTorreta>(area + "/Torreta");
+				if (t.torreta.IDPlayer == 0)
+				{
+					Torreta = t;
+					t.torreta.IDPlayer = player.id;
+                    GetNode<Camera>("Camera").GlobalRotation = Torreta.GlobalRotation;
+					Disparando = true;
+				}
+			}
         }
-		else
+		else if(IsOnFloor())
 		{
             if (Input.IsActionJustPressed("Fire1"))
 			{
@@ -73,12 +79,13 @@ public partial class LocalPlayer : CharacterBody3D
                 Torreta.Pie.Rotation = Vector3.Zero;
                 GetNode<Camera>("Camera").cam.RotationDegrees = Vector3.Zero;
                 Disparando = false;
+                Torreta.torreta.IDPlayer = 0;
                 Torreta = null;
             }
         }
 		if (AdminNet.admin.start) {
 			if (timeSend > 0)
-				timeSend -= delta * 8;
+				timeSend -= delta * 4;
 			else
 			{
 				timeSend = 1;

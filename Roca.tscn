@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://c0f1wexrctcaf"]
+
+[ext_resource type="Script" path="res://Code/LocalRoca.cs" id="1_0xvpd"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_0iy00"]
+radius = 1.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_k0ql7"]
+radius = 1.0
+height = 2.0
+
+[node name="Roca" type="RigidBody3D"]
+script = ExtResource("1_0xvpd")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_0iy00")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_k0ql7")

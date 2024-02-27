@@ -1,15 +1,14 @@
-[gd_scene load_steps=83 format=3 uid="uid://iwspjrl1e0bi"]
+[gd_scene load_steps=82 format=3 uid="uid://iwspjrl1e0bi"]
 
-[ext_resource type="Texture2D" uid="uid://g3c5ptm4ulyv" path="res://JuegoX_metal floor_diffuseOriginal.png" id="1_yje3d"]
-[ext_resource type="Texture2D" uid="uid://civnb2c7ytu6g" path="res://JuegoX_metal floor_ao.png" id="2_5df8c"]
+[ext_resource type="Texture2D" uid="uid://g3c5ptm4ulyv" path="res://JuegoX_metal floor_ao.png" id="1_yje3d"]
+[ext_resource type="Texture2D" uid="uid://civnb2c7ytu6g" path="res://JuegoX_garage_floor_nor_gl_4k.jpg" id="2_5df8c"]
 [ext_resource type="Texture2D" uid="uid://c77h3ivvvd8m" path="res://JuegoX_metal floor_normal.png" id="3_knj88"]
-[ext_resource type="Texture2D" uid="uid://wa023co28s0s" path="res://JuegoX_GWC_Steampunk_Electrical_Panel_02_New_BaseColor.jpg" id="4_j8grg"]
-[ext_resource type="Texture2D" uid="uid://bhbg0it5v2j51" path="res://JuegoX_GWC_Steampunk_Electrical_Panel_02_New_Metallic-GWC_Steampunk_Electrical_Panel_02_New_Roughness.png" id="5_mt8tt"]
-[ext_resource type="Texture2D" uid="uid://wa023co28s0s" path="res://JuegoX_GWC_Steampunk_Electrical_Panel_02_New_Normal.jpg" id="6_v22rb"]
+[ext_resource type="Texture2D" uid="uid://bhbg0it5v2j51" path="res://JuegoX_Consoles_SEGAController_normal.jpg" id="5_mt8tt"]
+[ext_resource type="Texture2D" uid="uid://wa023co28s0s" path="res://JuegoX_GWC_Steampunk_Electrical_Panel_02_New_BaseColor.jpg" id="6_v22rb"]
 [ext_resource type="Texture2D" uid="uid://cv1oq7nmrx6es" path="res://JuegoX_Consoles_SEGAController_metallic-Consoles_SEGAController_roughness.png" id="7_mjabh"]
-[ext_resource type="Texture2D" uid="uid://vb6753k7slj7" path="res://JuegoX_Consoles_SEGAController_normal.jpg" id="8_lwjvw"]
+[ext_resource type="Texture2D" uid="uid://vb6753k7slj7" path="res://JuegoX_Consoles_SEGAController_basecolor.jpg" id="8_lwjvw"]
 [ext_resource type="Texture2D" uid="uid://dqk7uj25whjfr" path="res://JuegoX_garage_floor_rough_4k.png" id="9_nk00j"]
-[ext_resource type="Texture2D" uid="uid://cjqx61ylemxwg" path="res://JuegoX_garage_floor_rough_4k_5.png" id="10_geg1i"]
+[ext_resource type="Texture2D" uid="uid://cjqx61ylemxwg" path="res://JuegoX_GWC_Steampunk_Electrical_Panel_02_New_Normal.jpg" id="10_geg1i"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cf1yv"]
 resource_name = "Material.001"
@@ -184,7 +183,7 @@ data = PackedVector3Array(-11.7657, 4.7897, -0.9808, -9.8894, 4.816, 0.9277, -9.
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p5asc"]
 resource_name = "Steampunk Electrical Panel"
 cull_mode = 2
-albedo_texture = ExtResource("4_j8grg")
+albedo_texture = ExtResource("6_v22rb")
 metallic = 1.0
 metallic_texture = ExtResource("5_mt8tt")
 metallic_texture_channel = 2
@@ -847,9 +846,9 @@ shadow_mesh = SubResource("ArrayMesh_uikla")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jnk3w"]
 resource_name = "Glass.002"
-transparency = 4
+transparency = 1
 cull_mode = 2
-albedo_color = Color(0.823431, 0.808933, 0.767322, 1)
+albedo_color = Color(0.823529, 0.807843, 0.768627, 0.25098)
 albedo_texture = ExtResource("9_nk00j")
 metallic = 1.0
 metallic_texture = ExtResource("10_geg1i")
@@ -1154,6 +1153,7 @@ skeleton = NodePath("")
 
 [node name="Window_001" type="MeshInstance3D" parent="Ventanas"]
 transform = Transform3D(0.144699, -1.40596e-07, -3.11692, 9.81234e-09, -2.24574, 2.54153e-06, -0.0602277, -7.03662e-07, -7.4885, 18.4171, 4.10233, -4.44453)
+visible = false
 mesh = SubResource("ArrayMesh_by8cn")
 skeleton = NodePath("")
 
